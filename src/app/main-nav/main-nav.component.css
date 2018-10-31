@@ -1,0 +1,32 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+}
+.disp1 {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .disp {
+    display: none;
+  }
+  .disp1 {
+    display: block;
+  }
+  .disp2 {
+    display: none;
+  }
+}
+
+.disp2 {
+    margin-left: 20px;
+    margin-right: 20px;
+}

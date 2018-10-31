@@ -1,0 +1,61 @@
+<mat-sidenav-container class="sidenav-container" [dir]='this.dire' >
+
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)">
+    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <div class="disp">
+        <mat-nav-list>      
+          <a mat-list-item  routerLink='/area'>Area-chart</a>
+          <a mat-list-item  routerLink='/vertical-bar'>Vertical-Bar-chart</a>
+          <a mat-list-item  routerLink='/horizontal-bar'>Horizontal-Bar-chart</a>
+          <a mat-list-item  routerLink='/line1'>Line1-chart</a>
+          <a mat-list-item  routerLink='/line2'>Line2-chart</a>
+          <a mat-list-item  routerLink='/pie'>Pie-chart</a>
+          <a mat-list-item  routerLink='/polar'>Polar-chart</a>
+          <a mat-list-item  routerLink='/radar'>Radar-chart</a>
+          <a mat-list-item  routerLink='/doughnut'>Doughnut-chart</a>
+          <a mat-list-item  routerLink='/scatter'>Scatter-chart</a>
+         </mat-nav-list>
+      </div>
+      <div class="disp1">
+          <mat-nav-list (click)="drawer.toggle()">      
+            <a mat-list-item  routerLink='/area'>Area-chart</a>
+            <a mat-list-item  routerLink='/vertical-bar'>Vertical-Bar-chart</a>
+            <a mat-list-item  routerLink='/horizontal-bar'>Horizontal-Bar-chart</a>
+            <a mat-list-item  routerLink='/line1'>Line1-chart</a>
+            <a mat-list-item  routerLink='/line2'>Line2-chart</a>
+            <a mat-list-item  routerLink='/pie'>Pie-chart</a>
+            <a mat-list-item  routerLink='/polar'>Polar-chart</a>
+            <a mat-list-item  routerLink='/radar'>Radar-chart</a>
+            <a mat-list-item  routerLink='/doughnut'>Doughnut-chart</a>
+            <a mat-list-item  routerLink='/scatter'>Scatter-chart</a>
+           </mat-nav-list>
+        </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>      
+      <span>Charting Library</span>
+      <div class="disp2">
+        <span>{{lside}}</span>
+        <mat-slide-toggle [ngModel]="side" (change)="check(side)"></mat-slide-toggle>
+        <span>{{rside}}</span>
+      </div>
+    </mat-toolbar>
+    <div class='body-container'>
+      <router-outlet></router-outlet>
+  </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
